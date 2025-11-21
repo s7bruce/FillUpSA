@@ -6,14 +6,78 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2288211D2E9A4F1A00FD3160 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2288211C2E9A4F1A00FD3160 /* WidgetKit.framework */; };
+		2288211F2E9A4F1B00FD3160 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2288211E2E9A4F1B00FD3160 /* SwiftUI.framework */; };
+		2288212E2E9A4F1D00FD3160 /* FuelWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2288211A2E9A4F1A00FD3160 /* FuelWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2288212C2E9A4F1D00FD3160 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2218D4D72E97D96300EE0FB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 228821192E9A4F1A00FD3160;
+			remoteInfo = FuelWidgetExtensionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		228821332E9A4F1D00FD3160 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2288212E2E9A4F1D00FD3160 /* FuelWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		2218D4DF2E97D96300EE0FB0 /* FuelSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2218D4DF2E97D96300EE0FB0 /* FillUpSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FillUpSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2288211A2E9A4F1A00FD3160 /* FuelWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FuelWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2288211C2E9A4F1A00FD3160 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2288211E2E9A4F1B00FD3160 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		228821342E9A4FB000FD3160 /* FillUpSA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FillUpSA-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2288212F2E9A4F1D00FD3160 /* Exceptions for "FuelWidgetExtension" folder in "FuelWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 228821192E9A4F1A00FD3160 /* FuelWidgetExtensionExtension */;
+		};
+		2288213F2E9A52DE00FD3160 /* Exceptions for "FuelSA" folder in "FuelWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/FuelPrice.swift,
+				Models/Station.swift,
+				Services/FuelAPI.swift,
+			);
+			target = 228821192E9A4F1A00FD3160 /* FuelWidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2218D4E12E97D96300EE0FB0 /* FuelSA */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2288213F2E9A52DE00FD3160 /* Exceptions for "FuelSA" folder in "FuelWidgetExtensionExtension" target */,
+			);
 			path = FuelSA;
+			sourceTree = "<group>";
+		};
+		228821202E9A4F1B00FD3160 /* FuelWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2288212F2E9A4F1D00FD3160 /* Exceptions for "FuelWidgetExtension" folder in "FuelWidgetExtensionExtension" target */,
+			);
+			path = FuelWidgetExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +90,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		228821172E9A4F1A00FD3160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2288211F2E9A4F1B00FD3160 /* SwiftUI.framework in Frameworks */,
+				2288211D2E9A4F1A00FD3160 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2218D4D62E97D96300EE0FB0 = {
 			isa = PBXGroup;
 			children = (
+				228821342E9A4FB000FD3160 /* FillUpSA-Info.plist */,
 				2218D4E12E97D96300EE0FB0 /* FuelSA */,
+				228821202E9A4F1B00FD3160 /* FuelWidgetExtension */,
+				2288211B2E9A4F1A00FD3160 /* Frameworks */,
 				2218D4E02E97D96300EE0FB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,35 +116,69 @@
 		2218D4E02E97D96300EE0FB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2218D4DF2E97D96300EE0FB0 /* FuelSA.app */,
+				2218D4DF2E97D96300EE0FB0 /* FillUpSA.app */,
+				2288211A2E9A4F1A00FD3160 /* FuelWidgetExtensionExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2288211B2E9A4F1A00FD3160 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2288211C2E9A4F1A00FD3160 /* WidgetKit.framework */,
+				2288211E2E9A4F1B00FD3160 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2218D4DE2E97D96300EE0FB0 /* FuelSA */ = {
+		2218D4DE2E97D96300EE0FB0 /* FillUpSA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2218D4EA2E97D96500EE0FB0 /* Build configuration list for PBXNativeTarget "FuelSA" */;
+			buildConfigurationList = 2218D4EA2E97D96500EE0FB0 /* Build configuration list for PBXNativeTarget "FillUpSA" */;
 			buildPhases = (
 				2218D4DB2E97D96300EE0FB0 /* Sources */,
 				2218D4DC2E97D96300EE0FB0 /* Frameworks */,
 				2218D4DD2E97D96300EE0FB0 /* Resources */,
+				228821332E9A4F1D00FD3160 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2288212D2E9A4F1D00FD3160 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2218D4E12E97D96300EE0FB0 /* FuelSA */,
+			);
+			name = FillUpSA;
+			packageProductDependencies = (
+			);
+			productName = FuelSA;
+			productReference = 2218D4DF2E97D96300EE0FB0 /* FillUpSA.app */;
+			productType = "com.apple.product-type.application";
+		};
+		228821192E9A4F1A00FD3160 /* FuelWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 228821302E9A4F1D00FD3160 /* Build configuration list for PBXNativeTarget "FuelWidgetExtensionExtension" */;
+			buildPhases = (
+				228821162E9A4F1A00FD3160 /* Sources */,
+				228821172E9A4F1A00FD3160 /* Frameworks */,
+				228821182E9A4F1A00FD3160 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2218D4E12E97D96300EE0FB0 /* FuelSA */,
+				228821202E9A4F1B00FD3160 /* FuelWidgetExtension */,
 			);
-			name = FuelSA;
+			name = FuelWidgetExtensionExtension;
 			packageProductDependencies = (
 			);
-			productName = FuelSA;
-			productReference = 2218D4DF2E97D96300EE0FB0 /* FuelSA.app */;
-			productType = "com.apple.product-type.application";
+			productName = FuelWidgetExtensionExtension;
+			productReference = 2288211A2E9A4F1A00FD3160 /* FuelWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -83,9 +193,12 @@
 					2218D4DE2E97D96300EE0FB0 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
+					228821192E9A4F1A00FD3160 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 				};
 			};
-			buildConfigurationList = 2218D4DA2E97D96300EE0FB0 /* Build configuration list for PBXProject "FuelSA" */;
+			buildConfigurationList = 2218D4DA2E97D96300EE0FB0 /* Build configuration list for PBXProject "FillUpSA" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,13 +212,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2218D4DE2E97D96300EE0FB0 /* FuelSA */,
+				2218D4DE2E97D96300EE0FB0 /* FillUpSA */,
+				228821192E9A4F1A00FD3160 /* FuelWidgetExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2218D4DD2E97D96300EE0FB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		228821182E9A4F1A00FD3160 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +243,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		228821162E9A4F1A00FD3160 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2288212D2E9A4F1D00FD3160 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 228821192E9A4F1A00FD3160 /* FuelWidgetExtensionExtension */;
+			targetProxy = 2288212C2E9A4F1D00FD3160 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2218D4E82E97D96500EE0FB0 /* Debug */ = {
@@ -251,8 +387,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93DM4DDNWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FillUpSA-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -263,7 +402,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Bruce.FuelSA;
+				PRODUCT_BUNDLE_IDENTIFIER = au.sambruce.FillUpSA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -282,8 +421,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93DM4DDNWH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FillUpSA-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,7 +436,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Bruce.FuelSA;
+				PRODUCT_BUNDLE_IDENTIFIER = au.sambruce.FillUpSA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -306,10 +448,70 @@
 			};
 			name = Release;
 		};
+		228821312E9A4F1D00FD3160 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93DM4DDNWH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FuelWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = au.sambruce.FillUpSA.FuelWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		228821322E9A4F1D00FD3160 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 93DM4DDNWH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FuelWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = au.sambruce.FillUpSA.FuelWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2218D4DA2E97D96300EE0FB0 /* Build configuration list for PBXProject "FuelSA" */ = {
+		2218D4DA2E97D96300EE0FB0 /* Build configuration list for PBXProject "FillUpSA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2218D4E82E97D96500EE0FB0 /* Debug */,
@@ -318,11 +520,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2218D4EA2E97D96500EE0FB0 /* Build configuration list for PBXNativeTarget "FuelSA" */ = {
+		2218D4EA2E97D96500EE0FB0 /* Build configuration list for PBXNativeTarget "FillUpSA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2218D4EB2E97D96500EE0FB0 /* Debug */,
 				2218D4EC2E97D96500EE0FB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		228821302E9A4F1D00FD3160 /* Build configuration list for PBXNativeTarget "FuelWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				228821312E9A4F1D00FD3160 /* Debug */,
+				228821322E9A4F1D00FD3160 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
