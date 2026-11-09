@@ -35,7 +35,7 @@ final class CarPlayCoordinator: NSObject {
         do {
             stations = try await FuelAPI.shared.fetchStations(
                 around: coord,
-                radiusKm: 15,
+                maximumStations: 75,
                 fuelTypes: ["ULP 91"]
             )
         } catch {
@@ -44,13 +44,14 @@ final class CarPlayCoordinator: NSObject {
 
         // Build POIs (limit for performance)
         let pois: [CPPointOfInterest] = stations.prefix(12).map { station in
+            let coord = CLLocationCoordinate2D(latitude: station.lat, longitude: station.lon)
             let item: MKMapItem
             if #available(iOS 26.0, *) {
-                let loc = CLLocation(latitude: station.coordinate.latitude,
-                                     longitude: station.coordinate.longitude)
+                let loc = CLLocation(latitude: coord.latitude,
+                                     longitude: coord.longitude)
                 item = MKMapItem(location: loc, address: nil)   // iOS 26 initializer
             } else {
-                let placemark = MKPlacemark(coordinate: station.coordinate)
+                let placemark = MKPlacemark(coordinate: coord)
                 item = MKMapItem(placemark: placemark)
             }
             item.name = station.name
@@ -79,15 +80,17 @@ final class CarPlayCoordinator: NSObject {
         template.pointOfInterestDelegate = self
 
         // Present template (handles both API shapes)
-        do {
-            if let controller = interfaceController,
-               controller.responds(to: #selector(CPInterfaceController.setRootTemplate(_:animated:completion:))) {
-                try? await controller.setRootTemplate(template, animated: true, completion: nil)
-            } else {
-                try? await interfaceController?.setRootTemplate(template, animated: true)
+        if let controller = interfaceController,
+           controller.responds(to: #selector(CPInterfaceController.setRootTemplate(_:animated:completion:))) {
+            // Newer API with completion; bridge completion to async
+            await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+                controller.setRootTemplate(template, animated: true, completion: { _, _ in
+                    continuation.resume()
+                })
             }
-        } catch {
-            print("Failed to set CarPlay root template: \(error.localizedDescription)")
+        } else {
+            // Older API may be throwing on newer SDKs; call with try? to ignore failures gracefully
+            _ = try? await interfaceController?.setRootTemplate(template, animated: true)
         }
     }
 
@@ -109,10 +112,10 @@ final class CarPlayCoordinator: NSObject {
 @MainActor
 extension CarPlayCoordinator: CPPointOfInterestTemplateDelegate {
     func pointOfInterestTemplate(_ pointOfInterestTemplate: CPPointOfInterestTemplate,
-                                 didSelect pointOfInterest: CPPointOfInterest) {
-        let dest = pointOfInterest.location
+                                 didSelectPointOfInterest pointOfInterest: CPPointOfInterest) {
+        _ = pointOfInterest.location
 
-        let route = CPRouteChoice(
+        _ = CPRouteChoice(
             summaryVariants: ["Route"],
             additionalInformationVariants: [],
             selectionSummaryVariants: ["Go"]
@@ -123,8 +126,10 @@ extension CarPlayCoordinator: CPPointOfInterestTemplateDelegate {
         if let controller = interfaceController,
            controller.responds(to: #selector(CPInterfaceController.pushTemplate(_:animated:completion:))) {
             controller.pushTemplate(mapT, animated: true, completion: nil)
-        } else {
-            interfaceController?.pushTemplate(mapT, animated: true) // iOS 13 fallback
+        } else if let controller = interfaceController {
+            Task { @MainActor in
+                _ = try? await controller.pushTemplate(mapT, animated: true)
+            }
         }
     }
 

@@ -2,39 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
-  <!-- 1) Required: location permission prompts -->
-  <key>NSLocationWhenInUseUsageDescription</key>
-  <string>Your location is used to find nearby fuel prices.</string>
-  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-  <string>Your location is used to keep nearby fuel prices up to date.</string>
-
-  <!-- 2) CarPlay scene manifest -->
-  <key>UIApplicationSceneManifest</key>
-  <dict>
-    <key>UIApplicationSupportsMultipleScenes</key>
-    <true/>
-    <key>UISceneConfigurations</key>
-    <dict>
-      <!-- CarPlay template scene -->
-      <key>CPTemplateApplicationSceneSessionRoleApplication</key>
-      <array>
-        <dict>
-          <key>UISceneClassName</key>
-          <string>CPTemplateApplicationScene</string>
-          <key>UISceneDelegateClassName</key>
-          <!-- Make sure this matches your file/class name & target module -->
-          <string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
-        </dict>
-      </array>
-    </dict>
-  </dict>
-
-  <!-- 3) Background modes (keep your existing one) -->
-  <key>UIBackgroundModes</key>
-  <array>
-    <string>location</string>
-  </array>
-
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>au.sambruce.FillUpSA.price-history-refresh</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>CPTemplateApplicationSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>CPTemplateApplicationScene</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 </dict>
 </plist>

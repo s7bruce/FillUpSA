@@ -1,0 +1,5 @@
+project_id = "febmlfvosczhcbcccjxm"
+
+[functions.collect-fuel-history]
+verify_jwt = true
+

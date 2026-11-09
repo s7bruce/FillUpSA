@@ -11,10 +11,15 @@ struct FuelSAApp: App {
             ContentView()
                 .environmentObject(appState)
                 .task {
+                    Notifier.configure()
                     Notifier.requestAuth()
                     await appState.bootstrap()
-                    GeofenceManager.shared.updateMonitoredStations(appState.stations, preferredFuel: appState.preferredFuel)
+                    BackgroundHistoryRefresh.schedule()
                 }
+        }
+        .backgroundTask(.appRefresh(BackgroundHistoryRefresh.identifier)) {
+            await appState.syncServerHistory()
+            BackgroundHistoryRefresh.schedule()
         }
     }
 }

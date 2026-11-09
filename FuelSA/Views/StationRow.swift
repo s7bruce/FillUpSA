@@ -12,10 +12,10 @@ struct StationRow: View {
     let preferredFuel: String
 
     private func priceText() -> String {
-        if let p = station.fuels.first(where: { $0.type == preferredFuel }) {
-            return String(format: "%.1f¢", p.priceCents)
+        if let value = station.priceForSelection(preferredFuel), value.isFinite {
+            return String(format: "%.1f\u{00A2}", value)
         }
-        return "—"
+        return "\u{2014}"
     }
 
     private func timeAgo(_ date: Date) -> String {
@@ -39,3 +39,4 @@ struct StationRow: View {
         .padding(.vertical, 6)
     }
 }
+
